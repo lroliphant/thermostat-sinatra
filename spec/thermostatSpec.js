@@ -1,7 +1,7 @@
 // -Thermostat starts at 20 degrees
 // -You can increase the temp with the up button
 // -You can decrease the temp with the down button
-// The minimum temperature is 10 degrees
+// -The minimum temperature is 10 degrees
 // If power saving mode is on, the maximum temperature is 25 degrees
 // If power saving mode is off, the maximum temperature is 32 degrees
 // Power saving mode is on by default
@@ -34,12 +34,23 @@ describe('Thermostat', function() {
 	});
 
 	describe('has a minimum temp',function(){
-		it('minimum is 10', function(){
+		it('minimum is 10 degrees', function(){
 			for(i = 0;i < 10;i++){
 				thermostat.decrease();
 			};
 			thermostat.decrease();
 			expect(thermostat.temperature).toEqual(10);
+		});
+	});
+
+	describe('power saving mode', function() {
+		it('max temperature is 25 degrees', function() {
+			thermostat.powerSaving
+			for(i = 0; i < 5; i++){
+				thermostat.increase();
+			};
+			thermostat.increase();
+			expect(thermostat.temperature).toEqual(25);
 		});
 	});
 
