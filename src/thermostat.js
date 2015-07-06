@@ -1,9 +1,16 @@
 var Thermostat = function() {
 	this.temperature =  20;
+	this.powerSaver = true;
 };
 
 Thermostat.prototype.increase = function() {
-	this.temperature += 1;
+	if (this.powerSaver === true){
+		if (this.temperature < 25) {
+			this.temperature += 1;
+		};
+	} else {
+		this.temperature += 1;
+	};
 };
 
 Thermostat.prototype.decrease = function () {
@@ -12,3 +19,6 @@ Thermostat.prototype.decrease = function () {
 	};
 };
 
+// Thermostat.prototype.powerSavingOff = function () {
+// 	this.powerSaver = false;
+// };

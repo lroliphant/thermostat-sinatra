@@ -43,14 +43,24 @@ describe('Thermostat', function() {
 		});
 	});
 
-	describe('power saving mode', function() {
+	describe('power saving mode on', function() {
 		it('max temperature is 25 degrees', function() {
-			thermostat.powerSaving
 			for(i = 0; i < 5; i++){
 				thermostat.increase();
 			};
 			thermostat.increase();
 			expect(thermostat.temperature).toEqual(25);
+		});
+	});
+
+	describe('power saving mode off', function() {
+		it('max temperature is 32 degrees', function() {
+			thermostat.powerSavingOff();
+			for(i = 0; i < 12; i++){
+				thermostat.increase();
+			};
+			thermostat.increase();
+			expect(thermostat.temperature).toEqual(32);
 		});
 	});
 
