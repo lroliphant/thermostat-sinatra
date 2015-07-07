@@ -14,6 +14,10 @@ function downTemp() {
   document.getElementById('temperature').innerHTML = currentTemp;
 }
 
+function togglePowerSaver() {
+  thermostat.powerSaver = !thermostat.powerSaver;
+}
+
 
 
 //
