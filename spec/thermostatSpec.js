@@ -71,6 +71,11 @@ describe('Thermostat', function() {
 			thermostat.temperature = 17;
 			expect(thermostat.energyUse()).toEqual('low');
 		});
+
+		it ('is set to medium if temperature is below 25', function(){
+			thermostat.temperature = 24;
+			expect(thermostat.energyUse()).toEqual('medium');
+		});
 	});
 
 });

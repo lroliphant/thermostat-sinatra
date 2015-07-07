@@ -30,3 +30,9 @@ Thermostat.prototype.powerSavingOff = function () {
 Thermostat.prototype.resetTemp = function () {
 	this.temperature = 20;
 };
+
+Thermostat.prototype.energyUse = function () {
+	if (this.temperature < 18){
+		return 'low'
+	};
+};
