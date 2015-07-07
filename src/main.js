@@ -18,6 +18,12 @@ function togglePowerSaver() {
   thermostat.powerSaver = !thermostat.powerSaver;
 }
 
+function reset() {
+  thermostat.resetTemp();
+  currentTemp = thermostat.temperature;
+  document.getElementById('temperature').innerHTML = currentTemp;
+}
+
 
 
 //
