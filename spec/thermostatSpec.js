@@ -76,6 +76,11 @@ describe('Thermostat', function() {
 			thermostat.temperature = 24;
 			expect(thermostat.energyUse()).toEqual('medium');
 		});
+
+		it ('is set to high if temperature is 25 degrees or above', function(){
+			thermostat.temperature = 25;
+			expect(thermostat.energyUse()).toEqual('high');
+		})
 	});
 
 });
