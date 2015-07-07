@@ -6,12 +6,18 @@
 
   <!-- <link rel="stylesheet" href="lib/jasmine-2.3.4/jasmine.css"> -->
 
+  <style>
+    .low {color: #20ac43;}
+    .medium {color: #FF8C00;}
+    .high {color: #FF0000}
+  </style>
+
   <script src="src/thermostat.js"></script>
 
 </head>
 
 <body>
-  <div id="temperature" class="temp"></div>
+  <div id="temperature" class="medium"></div>
 
   <button onclick="upTemp()" id="button-up">&and;</button>
   <button onclick="downTemp()" id="button-down">&or;</button>
