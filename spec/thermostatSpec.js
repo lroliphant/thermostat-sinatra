@@ -59,10 +59,17 @@ describe('Thermostat', function() {
 	});
 
 	describe('reset button', function(){
-		it('resets it to twenty',function(){
+		it('resets it to twenty', function(){
 			thermostat.temperature = 25;
 			thermostat.resetTemp();
 			expect(thermostat.temperature).toEqual(20);
+		});
+	});
+
+	describe('energy usage', function(){
+		it('is set to low if temperature is below 18 degrees', function(){
+			thermostat.temperature = 17;
+			expect(thermostat.energyUse()).toEqual('low');
 		});
 	});
 
