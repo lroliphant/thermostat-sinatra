@@ -1,15 +1,19 @@
 var Thermostat = function() {
 	this.temperature =  20;
 	this.powerSaver = true;
+	this.maxTempSaver = 25;
+	this.maxTemp = 32;
 };
 
 Thermostat.prototype.increase = function() {
 	if (this.powerSaver === true){
-		if (this.temperature < 25) {
+		if (this.temperature < this.maxTempSaver) {
 			this.temperature += 1;
 		};
 	} else {
-		this.temperature += 1;
+		if (this.temperature < this.maxTemp) {
+			this.temperature += 1;
+		};
 	};
 };
 
@@ -19,6 +23,6 @@ Thermostat.prototype.decrease = function () {
 	};
 };
 
-// Thermostat.prototype.powerSavingOff = function () {
-// 	this.powerSaver = false;
-// };
+Thermostat.prototype.powerSavingOff = function () {
+	this.powerSaver = false;
+};
