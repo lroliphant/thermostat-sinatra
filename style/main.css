@@ -1,9 +1,83 @@
+.container {
+  position: relative;
+  color: #545454;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+.inner-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  padding: 50px;
+  text-align: center;
+  margin: 250px auto;
+  background-color: #f0f0f0;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.temperature {
+  font-weight: bold;
+  font-size: 60px;
+}
+
+input[type="checkbox"] {
+  background-color: #fafafa;
+	border: 1px solid #cacece;
+}
+
+input {
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+}
+/*appearance: none;*/
+
 .low {
-  color: #20ac43;
-  }
+  color: #20B261;
+}
 .medium {
-  color: #FF8C00;
-  }
+  color: #FF9C32;
+}
 .high {
-  color: #FF0000;
-  }
+  color: #ED502D;
+}
+
+/* buttons */
+.temp-btn, .reset-btn {
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 20px 3px;
+  background-color:#545454;
+  color: #fff;
+  border: none;
+  padding: 0;
+  height: 35px;
+}
+
+.temp-btn {
+  width: 35px;
+  font-size: 20px;
+}
+
+.reset-btn {
+  width: 80px;
+  font-size: 13px;
+}
+
+.temp-btn:hover, .reset-btn:hover {
+  background-color: #212121;
+}
+
+.temp-btn:focus, .reset-btn:focus {
+  outline:0;
+}
