@@ -35,9 +35,7 @@ describe('Thermostat', function() {
 
 	describe('has a minimum temp',function(){
 		it('minimum is 10 degrees', function(){
-			for(i = 0;i < 10;i++){
-				thermostat.decrease();
-			};
+			thermostat.temperature = 10;
 			thermostat.decrease();
 			expect(thermostat.temperature).toEqual(10);
 		});
@@ -45,9 +43,7 @@ describe('Thermostat', function() {
 
 	describe('power saving mode on', function() {
 		it('max temperature is 25 degrees', function() {
-			for(i = 0; i < 5; i++){
-				thermostat.increase();
-			};
+			thermostat.temperature = 25;
 			thermostat.increase();
 			expect(thermostat.temperature).toEqual(25);
 		});
@@ -56,9 +52,7 @@ describe('Thermostat', function() {
 	describe('power saving mode off', function() {
 		it('max temperature is 32 degrees', function() {
 			thermostat.powerSavingOff();
-			for(i = 0; i < 12; i++){
-				thermostat.increase();
-			};
+			thermostat.temperature = 32;
 			thermostat.increase();
 			expect(thermostat.temperature).toEqual(32);
 		});
