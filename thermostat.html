@@ -6,6 +6,7 @@
 
   <link rel="stylesheet" href="style/main.css">
   <script src="src/thermostat.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 </head>
 
@@ -18,11 +19,28 @@
       </div>
       <button id="button-up" class="temp-btn">&and;</button>
       <button id="button-down" class="temp-btn">&or;</button>
-      <br />
+      <br>
       <button id="reset-button" class="reset-btn">Reset</button>
-      </br>
+      <br>
       Power Saver:<input type="checkbox" id="power-saver" checked>
+
+      <!-- API/AJAX play -->
+      <div>
+        <p><strong>City: </strong><span class="city"></span></p>
+        <p><strong>Temp: </strong><span class="temp"></span></p>
+      </div>
+
+      <div>
+        <select id="city-select">
+          <option value="London">London</option>
+          <option value="Singapore">Singapore</option>
+          <option value="Auckland">Auckland</option>
+        </select>
+        <!-- <p><strong>Temp: </strong><span class="temp-city"></span></p> -->
+      </div>
+
     </div>
+
   </div>
 
 </body>

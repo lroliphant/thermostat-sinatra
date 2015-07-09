@@ -58,7 +58,30 @@ function changeColour() {
   };
 }
 
+$(document).ready(function() {
 
+// AJAX request for London temp
+  $.get( "http://api.openweathermap.org/data/2.5/find?q=London&units=metric", function(data) {
+    $(".result").html(data);
+      $('.city').html(data.list[0].name);
+      $('.temp').html(data.list[0].main.temp);
+  });
 
-//
-// document.getElementById("button-up").onclick = upTemp;
+// AJAX request for a particular city
+  $('#city-select').change(function(){
+
+    var url = 'http://api.openweathermap.org/data/2.5/find?q=' + this.value + '&units=metric';
+    // this.value is essential returning same as document.getElementById('city-select').value
+
+    $.get(url, function(data){
+      $('.city').html(data.list[0].name);
+      $('.temp').html(data.list[0].main.temp);
+    });
+    // $.ajax({url: url, success: function(data){
+    //   $('.city').html(data.list[0].name);
+    //   $('.temp').html(data.list[0].main.temp);
+    // }
+
+  });
+
+});
