@@ -7,6 +7,9 @@ function upTemp() {
   currentTemp = thermostat.temperature;
   document.getElementById('temperature').innerHTML = currentTemp;
   changeColour();
+
+  // var data = currentTemp;
+  $.post( "/", { temp: currentTemp } );
 }
 
 var up = document.getElementById('button-up');
