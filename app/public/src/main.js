@@ -2,18 +2,49 @@ var thermostat = new Thermostat();
 var currentTemp = thermostat.temperature;
 document.getElementById('temperature').innerHTML = currentTemp;
 
+
+
+var up = document.getElementById('button-up');
+up.onclick = upTemp;
+
 function upTemp() {
   thermostat.increase();
   currentTemp = thermostat.temperature;
   document.getElementById('temperature').innerHTML = currentTemp;
   changeColour();
+  // serverAction;
+  $.post("/", function(){
+  alert("sucess");
+  console.log(currentTemp);
 
-  // var data = currentTemp;
-  $.post( "/", { temp: currentTemp } );
-}
+})
+  .done(function(){
+    alert("second sucess");
+  })
 
-var up = document.getElementById('button-up');
-up.onclick = upTemp;
+  .fail(function(){
+    alert("error");
+  });
+
+};
+
+//   $.post( "/", { temp: currentTemp } );
+
+// var serverAction = $.post("/", function(){
+//   alert("sucess");
+//   console.log(currentTemp);
+
+// })
+//   .done(function(){
+//     alert("second sucess");
+//   })
+
+//   .fail(function(){
+//     alert("error");
+//   });
+
+
+
 
 // up.onclick = function() {
 //   thermostat.increase();
