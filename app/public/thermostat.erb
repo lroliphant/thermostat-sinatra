@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Thermostat</title>
+
+  <link rel="stylesheet" href="style/main.css">
+  <script src="src/thermostat.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="inner-container">
+      <div class="temperature">
+        <span id="temperature" class="medium"></span>
+        <span>&deg;C</span>
+      </div>
+      <button id="button-up" class="temp-btn">&and;</button>
+      <button id="button-down" class="temp-btn">&or;</button>
+      <br>
+      <button id="reset-button" class="reset-btn">Reset</button>
+      <br>
+      Power Saver:<input type="checkbox" id="power-saver" checked>
+
+      <!-- API/AJAX play -->
+      <div>
+        <p><strong>City: </strong><span class="city"></span></p>
+        <p><strong>Temp: </strong><span class="temp"></span></p>
+      </div>
+
+      <div>
+        <select id="city-select">
+          <option value="London">London</option>
+          <option value="Singapore">Singapore</option>
+          <option value="Auckland">Auckland</option>
+        </select>
+        <!-- <p><strong>Temp: </strong><span class="temp-city"></span></p> -->
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+<script src="src/main.js"></script>
+</html>

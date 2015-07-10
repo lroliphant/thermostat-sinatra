@@ -9,15 +9,28 @@ class ThermoApp < Sinatra::Base
   # set :public_folder, Proc.new { File.join(root, '..', 'public') }
 
   get '/' do
-    # erb :thermostat
-    temp = session[:temp]
+    # if session[:temp]
+    #   @temp = session[:temp]
+    # else
+    #   @temp = 20
+    # end
     redirect '/thermostat.html'
+    # erb :thermostat
   end
 
   post '/' do
-    session[:temp] = params[:temp]
+
+    temp = params[:temp]
+    session[:temp] = temp
+  end
+
+  get '/temperature' do
+    "#{session[:temp] || 20}"
+
 
   end
+
+
 
   run! if app_file == $0
 end

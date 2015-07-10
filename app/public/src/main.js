@@ -3,7 +3,6 @@ var currentTemp = thermostat.temperature;
 document.getElementById('temperature').innerHTML = currentTemp;
 
 
-
 var up = document.getElementById('button-up');
 up.onclick = upTemp;
 
@@ -12,21 +11,29 @@ function upTemp() {
   currentTemp = thermostat.temperature;
   document.getElementById('temperature').innerHTML = currentTemp;
   changeColour();
-  // serverAction;
-  $.post("/", function(){
-  alert("sucess");
-  console.log(currentTemp);
 
-})
-  .done(function(){
-    alert("second sucess");
-  })
-
-  .fail(function(){
-    alert("error");
+  $.post("/", {temp: currentTemp}, function(){
+    // console.log(currentTemp);
+    // temp: currentTemp
   });
+  // .done(function(){
+  //   // alert("second sucess");
+  //   temp: currentTemp
+  // })
+  // .fail(function(){
+  //   alert("error");
+  // });
 
 };
+
+
+function getTemp() {
+  $.get("/temperature", function(data){
+      console.log(data);
+  });
+};
+
+getTemp();
 
 //   $.post( "/", { temp: currentTemp } );
 
