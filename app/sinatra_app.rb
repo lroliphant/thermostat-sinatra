@@ -19,15 +19,12 @@ class ThermoApp < Sinatra::Base
   end
 
   post '/' do
-
     temp = params[:temp]
     session[:temp] = temp
   end
 
   get '/temperature' do
     "#{session[:temp] || 20}"
-
-
   end
 
 

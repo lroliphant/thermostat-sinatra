@@ -8,11 +8,11 @@ var Thermostat = function() {
 Thermostat.prototype.increase = function() {
 	if (this.powerSaver === true){
 		if (this.temperature < this.maxTempSaver) {
-			this.temperature += 1;
+			this.temperature ++;
 		};
 	} else {
 		if (this.temperature < this.maxTemp) {
-			this.temperature += 1;
+			this.temperature --;
 		};
 	};
 };
