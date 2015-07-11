@@ -1,5 +1,5 @@
 var Thermostat = function() {
-	this.temperature =  20;
+	this.temperature = 20;
 	this.powerSaver = true;
 	this.maxTempSaver = 25;
 	this.maxTemp = 32;

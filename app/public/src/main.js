@@ -1,17 +1,21 @@
 var thermostat = new Thermostat();
-// var currentTemp = thermostat.temperature;
-document.getElementById('temperature').innerHTML = thermostat.temperature;
-thermostat.temperature = $('#temperature').text();
+var currentTemp = thermostat.temperature;
+document.getElementById('temperature').innerHTML = currentTemp;
 
+$(window).load(function () {
+  currentTemp = $('#temperature').text();
+  changeColour();
+  getTemp()
+});
 
 var up = document.getElementById('button-up');
 up.onclick = upTemp;
 
 function upTemp() {
   thermostat.increase();
-  // currentTemp = thermostat.temperature;
-  document.getElementById('temperature').innerHTML = thermostat.temperature;
-  $.post("/", {temp: thermostat.temperature}, function(){});
+  currentTemp = thermostat.temperature;
+  document.getElementById('temperature').innerHTML = currentTemp;
+  $.post("/", {temp: currentTemp}, function(){});
   changeColour();
 };
 
@@ -20,23 +24,21 @@ down.onclick = downTemp;
 
 function downTemp() {
   thermostat.decrease();
-  // currentTemp = thermostat.temperature;
-  document.getElementById('temperature').innerHTML = thermostat.temperature;
-  $.post("/", {temp: thermostat.temperature}, function(){});
+  currentTemp = thermostat.temperature;
+  document.getElementById('temperature').innerHTML = currentTemp;
+  $.post("/", {temp: currentTemp}, function(){});
   changeColour();
-}
-
-function updateTemp() {
-  
 }
 
 
 function getTemp() {
   $.get("/temperature", function(data){
+    // add function to handle the result that the server sends back - anonymous or named?
       // console.log(data);
-    $('#temperature').html(data);
+      $('#temperature').html(data);
   });
 };
+
 
 getTemp();
 
@@ -51,8 +53,8 @@ powerSaver.onclick = togglePowerSaver;
 
 function reset() {
   thermostat.resetTemp();
-  // currentTemp = thermostat.temperature;
-  document.getElementById('temperature').innerHTML = thermostat.temperature;
+  currentTemp = thermostat.temperature;
+  document.getElementById('temperature').innerHTML = currentTemp;
 }
 
 var resetTemp = document.getElementById('reset-button');
